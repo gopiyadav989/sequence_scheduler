@@ -120,15 +120,14 @@ def check_mould_constraints(order_c, mould_orders, current_scheduled_time):
         
         #check unit value
         order_c_unit_value = order_c["unit_value"]
-        # if higher_priority_order["unit_value"] >= order_c_unit_value:
-        #     if higher_priority_order["unit_value"] >= order_c_unit_value * 1.2:
-        #         return False
-        if higher_priority_order["unit_value"] >= order_c_unit_value * (1 + value_threshold_percent / 100):
-            return False
+        if higher_priority_order["unit_value"] >= order_c_unit_value:
+            if higher_priority_order["unit_value"] >= order_c_unit_value * 1.2:
+                return False
 
-    # mould_orders = mould_orders[mould_orders["prod_id"] != order_c["prod_id"]]
+
+    mould_orders = mould_orders[mould_orders["prod_order"] != order_c["prod_order"]]
         
-            
+
     return True
 
 def find_opportunity_candidate(unscheduled_orders, current_mould, current_scheduled_time):

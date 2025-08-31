@@ -7,17 +7,46 @@
 
 **Sequence Scheduler** is a sophisticated production planning and scheduling system that optimizes manufacturing order sequences using advanced algorithms and priority scoring. The name perfectly captures the core functionality - intelligently sequencing and scheduling production orders for maximum efficiency.
 
-## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Algorithm Details](#algorithm-details)
-- [File Structure](#file-structure)
-- [Dependencies](#dependencies)
-- [Contributing](#contributing)
-- [License](#license)
+## 🔧 Algorithm Details
+
+### 1. Data Processing Pipeline
+```mermaid
+graph LR
+    A[Excel Input] --> B[Data Cleaning]
+    B --> C[Column Standardization]
+    C --> D[Date Conversion]
+    D --> E[Data Validation]
+    E --> F[Merge Orders & Machines]
+```
+
+### 2. UPS Scoring System
+```mermaid
+graph TD
+    A[Order Data] --> B[Calculate Urgency]
+    A --> C[Check Sales Type]
+    A --> D[Evaluate Value]
+    A --> E[Assess MRP Priority]
+    B --> F[Urgency Score]
+    C --> G[Type Score]
+    D --> H[Value Score]
+    E --> I[MRP Score]
+    F --> J[Weighted UPS]
+    G --> J
+    H --> J
+    I --> J
+```
+
+### 3. Scheduling Algorithm
+```mermaid
+graph LR
+    A[Scored Orders] --> B[Group by Machine]
+    B --> C[Group by Mould]
+    C --> D[Sequencing Algorithm]
+    D --> E[Optimized Schedule]
+    E --> F[Excel Output]
+```
+
 
 ## 🎯 Overview
 
@@ -132,44 +161,6 @@ Your Excel file should contain two sheets:
 | `weekly_hours` | Available hours per week |
 | `estimated_availability` | Machine availability factor |
 
-## 🔧 Algorithm Details
-
-### 1. Data Processing Pipeline
-```mermaid
-graph LR
-    A[Excel Input] --> B[Data Cleaning]
-    B --> C[Column Standardization]
-    C --> D[Date Conversion]
-    D --> E[Data Validation]
-    E --> F[Merge Orders & Machines]
-```
-
-### 2. UPS Scoring System
-```mermaid
-graph TD
-    A[Order Data] --> B[Calculate Urgency]
-    A --> C[Check Sales Type]
-    A --> D[Evaluate Value]
-    A --> E[Assess MRP Priority]
-    B --> F[Urgency Score]
-    C --> G[Type Score]
-    D --> H[Value Score]
-    E --> I[MRP Score]
-    F --> J[Weighted UPS]
-    G --> J
-    H --> J
-    I --> J
-```
-
-### 3. Scheduling Algorithm
-```mermaid
-graph LR
-    A[Scored Orders] --> B[Group by Machine]
-    B --> C[Group by Mould]
-    C --> D[Sequencing Algorithm]
-    D --> E[Optimized Schedule]
-    E --> F[Excel Output]
-```
 
 ## 📁 File Structure
 
